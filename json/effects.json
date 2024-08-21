@@ -1,0 +1,27 @@
+[
+  {
+    "id": "sunlight_damage",
+    "type": "effect_type",
+
+    "name": ["Exposed to Sunlight"],
+    "desc": ["You've been exposed to the sun!  Seek basement immediately!"],
+    "show_in_info": true,
+
+    "miss_messages": [
+      ["You're in the sun!  Run for shelter now!", 2],
+      ["You're exposed to sunlight!  Hide from it, quickly!", 2]
+    ],
+    "rating": "bad",
+
+    "pain_sizing": true,
+    "hurt_sizing": true,
+    "main_parts_only": true,
+
+    "base_mods": {
+      "pain_min": [2],
+      "pain_chance": [10, 20],
+      "hurt_min": [2],
+      "hurt_chance": [15, 45]
+    }
+  }
+]

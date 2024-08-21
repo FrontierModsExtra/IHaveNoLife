@@ -1,0 +1,19 @@
+[
+  {
+    "id": "NO_LIFE",
+    "type": "mutation",
+
+    "name": "No Life",
+    "description": "Before the Cataclysm, you had no life.  You'd spend most of the day in a dark, dank room, surrounded with empty packs of chips, fat-stained packaging from your favorite fast-food franchise, plastic cups, and...  is that a bottle of moisturizer on your desk?  As such, stepping outside is a danger for you: any direct contact with sunlight will hurt your skin (with even cloudy or foggy conditions posing a chance of damage), and touching grass even though thick boots or layers of clothes will poison you.  How you've managed to survive this far is a mystery.  Surviving further will certainly prove a challenge.",
+
+    "points": -8,
+    "ugliness": 4,
+    "visibility": 4,
+    "social_modifiers": { "intimidate": -4, "persuade": -4 },
+
+    "processed_eocs": [
+      "IHaveNoLife_EOC_GRASS_POISON",
+      "IHaveNoLife_EOC_SUNLIGHT_DAMAGE"
+    ]
+  }
+]

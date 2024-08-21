@@ -1,0 +1,78 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "IHaveNoLife_EOC_GRASS_POISON",
+
+    "condition": {
+      "or": [
+        { "u_is_on_terrain": "t_grass" },
+        { "u_is_on_terrain": "t_grass_white" },
+        { "u_is_on_terrain": "t_grass_long" },
+        { "u_is_on_terrain": "t_grass_tall" },
+        { "u_is_on_terrain": "t_grass_dead" },
+        { "u_is_on_terrain": "t_grass_golf" },
+        { "u_is_on_terrain": "t_grass_alien" },
+
+        { "u_is_on_terrain": "t_fern" },
+        { "u_is_on_terrain": "t_fern_harvested" },
+        { "u_is_on_terrain": "t_mega_fern" }
+      ]
+    },
+    "effect": [
+      {
+        "if": { "not": { "u_has_effect": "poison" } },
+        "then": { "u_message": "You've been poisoned from touching grass!" }
+      },
+      {
+        "u_add_effect": "badpoison",
+        "duration": "60 s"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "IHaveNoLife_EOC_SUNLIGHT_DAMAGE",
+
+    "//": [
+      "odds for weather types based on their `sun_multiplier` values",
+      "types with values above 0.6 are considered to be guaranteed to damage"
+    ],
+
+    "condition": {
+      "and": [
+        "u_is_outside",
+        "is_day",
+        {
+          "or": [
+            { "is_weather": "sunny" },
+            { "is_weather": "clear" },
+            { "is_weather": "early_portal_storm" },
+            { "is_weather": "distant_portal_storm" },
+            { "and": [{ "is_weather": "cloudy" }, { "one_in_chance": 3 }] },
+            {
+              "and": [{ "is_weather": "light_drizzle" }, { "one_in_chance": 5 }]
+            },
+            { "and": [{ "is_weather": "drizzle" }, { "one_in_chance": 10 }] },
+            { "and": [{ "is_weather": "flurries" }, { "one_in_chance": 3 }] },
+            { "and": [{ "is_weather": "snowing" }, { "one_in_chance": 7 }] },
+            { "and": [{ "is_weather": "mist" }, { "one_in_chance": 3 }] },
+            { "and": [{ "is_weather": "fog" }, { "one_in_chance": 3 }] },
+            {
+              "and": [
+                { "is_weather": "close_portal_storm" },
+                { "one_in_chance": 2 }
+              ]
+            },
+            {
+              "and": [{ "is_weather": "portal_storm" }, { "one_in_chance": 2 }]
+            }
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "u_add_effect": "sunlight_damage",
+      "duration": "1 s"
+    }
+  }
+]
